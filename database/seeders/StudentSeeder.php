@@ -14,11 +14,24 @@ class StudentSeeder extends Seeder
      */
     public function run(): void
     {
-        // why to fake data singel 
-        student::create([
-            'name'=>fake()->name(),
-            'email'=> fake()->unique()->email()
-        ]);
+        // why to fake data singel
+        // student::create([
+        //     'name'=>fake()->name(),
+        //     'email'=> fake()->unique()->email()
+        // ]);
+        // add multiple fake data
+
+        // its for seeder -->>>>
+
+        // for($i=1;$i<=10;$i++){
+        //     student::create([
+        //         'name'=>fake()->name(),
+        //         'email'=> fake()->unique()->email()
+        //     ]);
+        // }
+        
+        student::factory(5)->create();
+
 
         // way to real data
         // $json=File::get(path:'database/json/students.json');
