@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 // Route::get('test',TestingController::class);
 
 // all user
-Route::get('/',[UserController::class,'showUsers']);
+Route::get('/',[UserController::class,'showUsers'])->name('home');
 
 // singel user
 Route::get('/user/{id}',[UserController::class,'singelUser'])->name('view.user');
@@ -32,3 +32,6 @@ Route::get('/add',[UserController::class,'addUser']);
 
 // update user
 Route::get('/update',[UserController::class,'updateUser']);
+
+// update user
+Route::get('/update/{id}',[UserController::class,'deleteUser'])->name('delete.user');

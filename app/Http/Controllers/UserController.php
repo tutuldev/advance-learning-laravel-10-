@@ -112,4 +112,16 @@ class UserController extends Controller
     }
     // update method end
 
+    // delete method start
+    public function deleteUser(string $id){
+        $user = DB::table('users')
+        ->where('id',$id)
+        ->delete();
+        if ($user){
+            return redirect()->route('home');
+            // echo "<h1>Data Delete Successfully.</h1>";
+        }
+    }
+    // delete method end
+
 }
