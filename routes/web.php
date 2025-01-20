@@ -26,3 +26,6 @@ Route::get('/',[UserController::class,'showUsers']);
 
 // singel user
 Route::get('/user/{id}',[UserController::class,'singelUser'])->name('view.user');
+
+// add user
+Route::get('/add',[UserController::class,'addUser']);

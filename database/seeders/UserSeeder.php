@@ -20,8 +20,8 @@ class UserSeeder extends Seeder
                 'email'=> fake()->unique()->email(),
                 'age' =>fake()->numberBetween(15,20),
                 'city' =>fake()->city(),
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
+                // 'created_at' => Carbon::now(),
+                // 'updated_at' => Carbon::now(),
             ]);
         }
     }
