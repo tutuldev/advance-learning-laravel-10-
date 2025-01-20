@@ -29,8 +29,20 @@ class StudentSeeder extends Seeder
         //         'email'=> fake()->unique()->email()
         //     ]);
         // }
-        
+
+        // student seeder by factory
         student::factory(5)->create();
+
+        // users  seeder by seeder method
+
+        //     for($i=1;$i<=10;$i++){
+        //     student::create([
+        //         'name'=>fake()->name(),
+        //         'email'=> fake()->unique()->email(),
+        //         'age' =>fake()->numberBetween(15,20),
+        //         'city' =>fake()->city(),
+        //     ]);
+        // }
 
 
         // way to real data

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\TestingController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -12,10 +13,16 @@ use Illuminate\Support\Facades\Route;
 
 
 // groupe route controller
-Route::controller(PageController::class)->group(function(){
-    Route::get('/','showHome')->name('home');
-    Route::get('/user/{id}','showUser')->name('user');
-    Route::get('/blog','showBlog')->name('blog');
-});
+// Route::controller(PageController::class)->group(function(){
+//     Route::get('/','showHome')->name('home');
+//     Route::get('/user/{id}','showUser')->name('user');
+//     Route::get('/blog','showBlog')->name('blog');
+// });
 
-Route::get('test',TestingController::class);
+// Route::get('test',TestingController::class);
+
+// all user
+Route::get('/',[UserController::class,'showUsers']);
+
+// singel user
+Route::get('/user/{id}',[UserController::class,'singelUser'])->name('view.user');

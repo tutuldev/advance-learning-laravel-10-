@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\student;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -24,7 +25,8 @@ class DatabaseSeeder extends Seeder
     // student::factory(5)->create();
 
         $this->call([
-        StudentSeeder::class
+        StudentSeeder::class,
+        UserSeeder::class
      ]);
     }
 }
