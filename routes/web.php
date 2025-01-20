@@ -29,3 +29,6 @@ Route::get('/user/{id}',[UserController::class,'singelUser'])->name('view.user')
 
 // add user
 Route::get('/add',[UserController::class,'addUser']);
+
+// update user
+Route::get('/update',[UserController::class,'updateUser']);

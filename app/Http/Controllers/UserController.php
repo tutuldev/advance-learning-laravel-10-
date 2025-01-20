@@ -97,5 +97,19 @@ class UserController extends Controller
         if ($user){
             echo "<h1>Data Successfully Added.</h1>";
         }
+    } //end insert method
+
+    // update method start
+    public function updateUser(){
+        $user = DB::table('users')
+        ->where('id',1)
+        ->update([
+            'city'=>'Mumnai2'
+        ]);
+        if ($user){
+            echo "<h1>Data update Successfully.</h1>";
+        }
     }
+    // update method end
+
 }
