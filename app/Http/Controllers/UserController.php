@@ -54,17 +54,19 @@ class UserController extends Controller
     }
 
     // // singel data
-    public function addUser(){
+    public function addUser(Request $req){
+        // return $req; //for debug
         $user = DB::table('users')
-        ->insertOrIgnore([
-            'name'=>'Ram3 Kumar',
-            'email'=>'ram3@gmail.com',
-            'age'=>19,
-            'city'=>'delhi'
+        ->insert([
+            'name'=>$req->username,
+            'email'=>$req->useremail,
+            'age'=>$req->userage,
+            'city'=>$req->usercity
         ]);
         // dd($user); //if data inser it value is true
         if ($user){
-            echo "<h1>Data Successfully Added.</h1>";
+            return redirect()->route('home');
+            // echo "<h1>Data Successfully Added.</h1>";
         }else{
             echo "<h1>Data Not added.</h1>";
 
@@ -94,20 +96,33 @@ class UserController extends Controller
     //         ]
     //     ]);
         // dd($user); //if data inser it value is true
-        if ($user){
-            echo "<h1>Data Successfully Added.</h1>";
-        }
+        // if ($user){
+        //     echo "<h1>Data Successfully Added.</h1>";
+        // }
     } //end insert method
 
+    // update page
+    public function updatePage(string $id){
+        // $user = DB::table('users')->where('id',$id)->get();
+        $user = DB::table('users')->find($id);
+        // return $user;
+        return view('updateuser',['data' => $user]);
+    }
+
+
     // update method start
-    public function updateUser(){
+    public function updateUser(Request $req,$id){
         $user = DB::table('users')
-        ->where('id',1)
+        ->where('id',$id)
         ->update([
-            'city'=>'Mumnai2'
+            'name'=>$req->username,
+            'email'=>$req->useremail,
+            'age'=>$req->userage,
+            'city'=>$req->usercity
         ]);
         if ($user){
-            echo "<h1>Data update Successfully.</h1>";
+            return redirect()->route('home');
+            // echo "<h1>Data update Successfully.</h1>";
         }
     }
     // update method end
